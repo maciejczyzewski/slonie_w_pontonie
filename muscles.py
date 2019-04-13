@@ -138,10 +138,16 @@ def cropND(img, bounding):
     return img[slices]
 
 from PIL import Image
-
-def fit(image, max_size, method=Image.ANTIALIAS):
+import cv2
+from copy import deepcopy
+from skimage.transform import resize
+def fit(image, back, max_size, method=Image.ANTIALIAS):
     """Skaluje do odpowiedniego rozmiaru oraz wysrodkuwuje"""
+    back = deepcopy(back)
+    back = cv2.blur(back,(15,15))
     image = Image.fromarray(image)
+    back = resize(back, max_size, anti_aliasing=True)*255
+    back = Image.fromarray(back.astype(np.uint8))
     im_aspect = float(image.size[0]) / float(image.size[1])
     out_aspect = float(max_size[0]) / float(max_size[1])
     # interesuje nasz ratio w stosunku do krawedzi
@@ -154,9 +160,9 @@ def fit(image, max_size, method=Image.ANTIALIAS):
     # srodek obrazka sie powinnien tutaj znalesc
     offset = (int((max_size[0] - scaled.size[0]) / 2),
               int((max_size[1] - scaled.size[1]) / 2))
-    back = Image.new("RGB", max_size, "black")
+    #back = Image.new("RGB", max_size, "black")
     back.paste(scaled, offset)  # wklejamy jedno w drugie
-    back = np.array(back) 
+    back = np.array(back)
     #back = back[:, :, ::-1].copy()
     return back
 
@@ -181,7 +187,7 @@ def parse_file(filename):
             #print(M)
         #print("TYPE", M)
         # FIXME: resize to MAX 100
-        M = fit(M, (150, 150))
+        M = fit(M, M, (150, 150))
         #M = cropND(M, (100,100))
         okay_dmuscles[key] = M
 
@@ -194,7 +200,7 @@ def parse_file(filename):
         place = "data/PudzianNet/{}/{}/{}.png".format(key, label_w, dhash)
         print("SAVE TO", place)
         io.imsave(place, img)
-
+        #toolbox.debug(img)
     #return okay_dmuscles
 
 import os
@@ -216,4 +222,4 @@ for filename in tqdm(glob("data/dataset men ABC/*")):
     except:
         print("ERROR")
 
-# parse_file("data/dataset men ABC/A_566448.png")
+#parse_file("data/dataset men ABC/A_566448.png")
