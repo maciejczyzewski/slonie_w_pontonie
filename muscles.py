@@ -181,7 +181,7 @@ def parse_file(filename):
             #print(M)
         #print("TYPE", M)
         # FIXME: resize to MAX 100
-        M = fit(M, (100, 100))
+        M = fit(M, (150, 150))
         #M = cropND(M, (100,100))
         okay_dmuscles[key] = M
 
