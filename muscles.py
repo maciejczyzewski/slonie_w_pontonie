@@ -1,19 +1,17 @@
-import cv2
-import numpy as np
-import muscles
 
 from hmr.src.util import renderer as vis_util
 
+import joints
 import toolbox
 
-def half(a, b):
-    return [(a[0]-b[0])/2, (a[1]-b[1])/2]
+# def half(a, b):
+    # return [(a[0]-b[0])/2, (a[1]-b[1])/2]
 
 
 pb = [8, 7]  # otoczka
 lb = [9, 10]  # otoczka
-pk = [8, half(8, 2), half(half(2, 3), 12), 12]
-lk = [9, half(9, 3), half(half(3, 2), 12), 12]
+# pk = [8, half(8, 2), half(half(2, 3), 12), 12]
+# lk = [9, half(9, 3), half(half(3, 2), 12), 12]
 pr = [7, 6]  # otoczka
 lr = [10, 11]  # otoczka
 pu = [2, 1]  # otoczka grubsza niz ramie czy biceps
@@ -32,12 +30,15 @@ skel_img = vis_util.draw_skeleton(img, joints_orig)
 
 prawy_biceps = toolbox.crop(skel_img, toolbox.inject(joints_orig, pb))
 lewy_biceps = toolbox.crop(skel_img, toolbox.inject(joints_orig, lb))
-prawa_klatka = toolbox.crop(skel_img, toolbox.inject(joints_orig, pk))
-lewa_klatka = toolbox.crop(skel_img, toolbox.inject(joints_orig, lk))
+#prawa_klatka = toolbox.crop(skel_img, toolbox.inject(joints_orig, pk))
+#lewa_klatka = toolbox.crop(skel_img, toolbox.inject(joints_orig, lk))
 prawe_ramie = toolbox.crop(skel_img, toolbox.inject(joints_orig, pr))
 lewe_ramie = toolbox.crop(skel_img, toolbox.inject(joints_orig, lr))
-prawe_udo = toolbox.crop(skel_img, toolbox.inject(joints_orig, pu))
-lewe_udo = toolbox.crop(skel_img, toolbox.inject(joints_orig, lu))
-prawa_lydka = toolbox.crop(skel_img, toolbox.inject(joints_orig, pl))
-lewa_lydka = toolbox.crop(skel_img, toolbox.inject(joints_orig, ll))
-lewa_klatka = toolbox.crop(skel_img, toolbox.inject(joints_orig, lk))
+prawe_udo = toolbox.crop(skel_img, toolbox.pad(toolbox.inject(joints_orig, pu), size=3))
+lewe_udo = toolbox.crop(skel_img, toolbox.pad(toolbox.inject(joints_orig, lu), size=3))
+prawa_lydka = toolbox.crop(skel_img, toolbox.pad(toolbox.inject(joints_orig, pl), size=3))
+lewa_lydka = toolbox.crop(skel_img, toolbox.pad(toolbox.inject(joints_orig, ll), size=3))
+#lewa_klatka = toolbox.crop(skel_img, toolbox.inject(joints_orig, lk))
+
+toolbox.debug([prawy_biceps, lewy_biceps, prawe_ramie, lewe_ramie, prawe_udo, lewe_udo, \
+prawa_lydka, lewa_lydka])
