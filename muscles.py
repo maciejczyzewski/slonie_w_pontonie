@@ -128,7 +128,7 @@ def get_muscles(img):
             'prawe_udo':    prawe_udo,
             'lewe_udo' :  lewe_udo,
             'prawa_lydka':    prawa_lydka,
-               'lewa_lydka}':  lewa_lydka}
+               'lewa_lydka':  lewa_lydka}
 
 import operator
 def cropND(img, bounding):
@@ -160,9 +160,14 @@ def fit(image, max_size, method=Image.ANTIALIAS):
     #back = back[:, :, ::-1].copy()
     return back
 
-def parse_file(filename):
-    print(filename.split("_")[-2][-1])
+import xxhash
+def __action_hash(obj):
+    h = xxhash.xxh64()
+    h.update(obj)
+    return h.intdigest()
 
+def parse_file(filename):
+    label_w = filename.split("_")[-2][-1]
     dmuscles = get_muscles(io.imread(filename))
     okay_dmuscles = {}
     for key in dmuscles:
@@ -182,6 +187,33 @@ def parse_file(filename):
 
     #print(okay_dmuscles.keys())
     #print(okay_dmuscles.values())
-    toolbox.debug(list(okay_dmuscles.values()))
+    #toolbox.debug(list(okay_dmuscles.values()))
+    for key in okay_dmuscles:
+        img = okay_dmuscles[key]
+        dhash = __action_hash(img)
+        place = "data/PudzianNet/{}/{}/{}.png".format(key, label_w, dhash)
+        print("SAVE TO", place)
+        io.imsave(place, img)
 
-parse_file("data/dataset men ABC/A_566448.png")
+    #return okay_dmuscles
+
+import os
+keys_1 = ['lewy_abs', 'prawy_abs', 'prawa_klatka', 'lewa_klatka', 'prawy_biceps', 'lewy_biceps', 'prawe_ramie', 'lewe_ramie', 'prawe_udo', 'lewe_udo', 'prawa_lydka', 'lewa_lydka']
+keys_2 = ['A', 'B', 'C']
+
+for a in keys_1:
+    for b in keys_2:
+        cmd = "mkdir -p data/PudzianNet/{}/{}".format(a, b)
+        print(cmd)
+        os.system(cmd)
+
+from tqdm import tqdm
+from glob import glob
+
+for filename in tqdm(glob("data/dataset men ABC/*")):
+    try:
+        parse_file(filename)
+    except:
+        print("ERROR")
+
+# parse_file("data/dataset men ABC/A_566448.png")

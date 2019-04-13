@@ -62,8 +62,12 @@ def parse(img_path):
     return parse_core(io.imread(img_path))
 
 
+sess = tf.Session()
+model = RunModel(config, sess=sess)
+
+
 def parse_core(img_org):
-    global config
+    global config, sess, model
 
     input_img, proc_param, img = preprocess_image(img_org)
 
@@ -77,10 +81,7 @@ def parse_core(img_org):
             l["joints"], l["verts"], l["cams"], l["joints3d"], l["theta"]
         return img, proc_param, joints[0], verts[0], cams[0]
 
-    sess = tf.Session()
-    model = RunModel(config, sess=sess)
-
-    # add batch dimension: 1 x D x D x 3
+   # add batch dimension: 1 x D x D x 3
     input_img = np.expand_dims(input_img, 0)
 
     # theta is the 85D vector holding [camera, pose, shape] where camera is 3D

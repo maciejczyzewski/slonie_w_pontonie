@@ -85,10 +85,10 @@ def line_box(img, pt1, pt2, size=25):
         cnt = contours[0]
         rect = cv2.minAreaRect(cnt)
         box = cv2.boxPoints(rect)
-        print(box)
+        #print(box)
     except:
         box = pts([[0,0],[0,1],[1,0],[1,1]])[0]
-        print(box)
+        #print(box)
     return np.int0(box)
 
 
