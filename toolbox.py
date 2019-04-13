@@ -1,13 +1,16 @@
 import cv2
 import numpy as np
 
-def debug(img, txt="debug"):
+def debug(imgs, txt="debug"):
     import matplotlib.pyplot as plt
-    plt.figure(1)
-    plt.clf()
-    plt.imshow(img)
-    plt.title(txt)
-    plt.axis('off')
+    if not isinstance(imgs, list): imgs = [imgs]
+    fig = plt.figure(1); plt.clf()
+    for i, img in enumerate(imgs):
+        print(i)
+        fig.add_subplot(1,len(imgs),i+1)
+        plt.imshow(img)
+        plt.title("[{}] {}".format(i, txt))
+        plt.axis('off')
     plt.show()
 
 def crop(img, points, warped=False):
