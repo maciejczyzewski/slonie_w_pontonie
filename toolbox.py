@@ -5,7 +5,6 @@ def debug(img, txt="debug"):
     import matplotlib.pyplot as plt
     plt.figure(1)
     plt.clf()
-    plt.subplot(231)
     plt.imshow(img)
     plt.title(txt)
     plt.axis('off')
