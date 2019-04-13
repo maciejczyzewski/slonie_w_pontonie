@@ -1,5 +1,5 @@
 import skimage.io as io
-
+import numpy as np
 
 from hmr.src.util import renderer as vis_util
 
@@ -102,6 +102,7 @@ def get_muscles(img):
     lewy_abs = toolbox.crop(skel_img, labs)
     prawy_abs = toolbox.crop(skel_img, pabs)
 
+    """
     toolbox.debug([lewy_abs,
                    prawy_abs,
                    prawa_klatka,
@@ -114,6 +115,73 @@ def get_muscles(img):
                    lewe_udo,
                    prawa_lydka,
                    lewa_lydka])
+    """
 
+    return {'lewy_abs': lewy_abs,
+            'prawy_abs': prawy_abs,
+            'prawa_klatka':     prawa_klatka,
+            'lewa_klatka':   lewa_klatka,
+            'prawy_biceps':   prawy_biceps,
+            'lewy_biceps':   lewy_biceps,
+            'prawe_ramie' :  prawe_ramie,
+            'lewe_ramie':    lewe_ramie,
+            'prawe_udo':    prawe_udo,
+            'lewe_udo' :  lewe_udo,
+            'prawa_lydka':    prawa_lydka,
+               'lewa_lydka}':  lewa_lydka}
 
-get_muscles(io.imread("data/dataset men ABC/A_566448.png"))
+import operator
+def cropND(img, bounding):
+    start = tuple(map(lambda a, da: a//2-da//2, img.shape, bounding))
+    end = tuple(map(operator.add, start, bounding))
+    slices = tuple(map(slice, start, end))
+    return img[slices]
+
+from PIL import Image
+
+def fit(image, max_size, method=Image.ANTIALIAS):
+    """Skaluje do odpowiedniego rozmiaru oraz wysrodkuwuje"""
+    image = Image.fromarray(image)
+    im_aspect = float(image.size[0]) / float(image.size[1])
+    out_aspect = float(max_size[0]) / float(max_size[1])
+    # interesuje nasz ratio w stosunku do krawedzi
+    if im_aspect >= out_aspect:
+        scaled = image.resize(
+            (max_size[0], int((float(max_size[0]) / im_aspect) + 0.5)), method)
+    else:
+        scaled = image.resize(
+            (int((float(max_size[1]) * im_aspect) + 0.5), max_size[1]), method)
+    # srodek obrazka sie powinnien tutaj znalesc
+    offset = (int((max_size[0] - scaled.size[0]) / 2),
+              int((max_size[1] - scaled.size[1]) / 2))
+    back = Image.new("RGB", max_size, "black")
+    back.paste(scaled, offset)  # wklejamy jedno w drugie
+    back = np.array(back) 
+    #back = back[:, :, ::-1].copy()
+    return back
+
+def parse_file(filename):
+    print(filename.split("_")[-2][-1])
+
+    dmuscles = get_muscles(io.imread(filename))
+    okay_dmuscles = {}
+    for key in dmuscles:
+        M = dmuscles[key]
+        size = M.shape[0]*M.shape[1]
+        # rotation
+        if not isinstance(M, np.ndarray): continue
+        if size < 100: continue
+        if M.shape[0] < M.shape[1]:
+            M = np.rot90(M)
+            #print(M)
+        #print("TYPE", M)
+        # FIXME: resize to MAX 100
+        M = fit(M, (100, 100))
+        #M = cropND(M, (100,100))
+        okay_dmuscles[key] = M
+
+    #print(okay_dmuscles.keys())
+    #print(okay_dmuscles.values())
+    toolbox.debug(list(okay_dmuscles.values()))
+
+parse_file("data/dataset men ABC/A_566448.png")

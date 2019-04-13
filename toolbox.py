@@ -17,6 +17,7 @@ def debug(imgs, txt="debug"):
     plt.clf()
     for i, img in enumerate(imgs):
         print(i)
+        #print(img)
         fig.add_subplot(1, len(imgs), i + 1)
         plt.imshow(img)
         plt.title("[{}] {}".format(i, txt))
