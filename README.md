@@ -4,20 +4,25 @@
 
 ### Wprowadzenie
 
-Aplikacja analizująca stan ciała i zdrowia na podstawie serii zdjęć przy pomocy sieci neuronowych.
+Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoczesnej kontroli stanu zdrowia. Na podstawie serii zdjęć analizuje objętość i kształt mięśni oraz posturę, zwracając uwagę na ostrzeżenia chorobowe (takie jak otyłość, skrzywienia kręgosłupa, rak skóry).
 
-_*dodatkowe funkcje: sugestie treningowe, ostrzeżenia chorobowe, statystyki i wizualizacje progresu_
+### Funkcje
+
+- analiza objętości i kształtu mięśni
+- klasyfikacja sylwetki na skali
+- wizualizacja progresu i statystyki
+- możliwość wyznaczenia przez klienta celu i dopasowanie treningu
+- analiza postury
+- ostrzeżenia chorobowe
 
 ### Założenia aplikacji
 
 <img src="docs/1.jpg" alt="miesniak" height="400"/>
-> _Analiza stanu ciała ze zdjęcia_
+_Analiza stanu ciała ze zdjęcia_
 <img src="docs/2.jpg" alt="skala" height="400"/>
-> _Umieszczenie sylwetki na skali_
+_Umieszczenie sylwetki na skali_
 
-### Funkcje
 
-> _Wyznaczanie punktów sylwetki_
 
 ```
 $ pipreqs . --ignore hmr                        # generacja listy pakietow
