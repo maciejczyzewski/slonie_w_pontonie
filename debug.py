@@ -16,17 +16,17 @@ def visualize(img, proc_param, _joints, verts, cam):
     renderer = vis_util.SMPLRenderer(face_path=joints.config.smpl_face_path)
     rend_img_overlay = renderer(
         vert_shifted, cam=cam_for_render, img=mask, do_alpha=False)
-    
+
     # rend_img_overlay[0<rend_img_overlay] = 1
 
     black_pixels_mask = np.all(rend_img_overlay == [0, 0, 0], axis=-1)
     non_black_pixels_mask = np.any(rend_img_overlay != [0, 0, 0], axis=-1)
     # or non_black_pixels_mask = ~black_pixels_mask
-    
+
     image_copy = rend_img_overlay.copy()
     image_copy[black_pixels_mask] = [255, 255, 255]
     image_copy[non_black_pixels_mask] = [0, 0, 0]
-    
+
     #kernel = np.ones((2,2),np.uint8)
     #image_copy = cv2.erode(image_copy,kernel,iterations = 1)
 

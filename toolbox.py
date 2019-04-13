@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
-import pyclipper
 
+import pyclipper
 import math
 
 
@@ -64,6 +64,11 @@ def crop(img, points, warped=True):
         return cv2.getRectSubPix(img_rot, size, center)
 
 
+def line_crop(img, pt1, pt2, size=25, warped=True):
+    box = line_box(img, pt1, pt2, size=size)
+    return crop(img, pts(box), warped=warped)
+
+
 def line_box(img, pt1, pt2, size=25):
     # FIXME: size -> dynamiczny do dlugosci reki (pt1-pt2)
     mask = np.zeros(img.shape, dtype=np.uint8)
@@ -76,9 +81,6 @@ def line_box(img, pt1, pt2, size=25):
     box = cv2.boxPoints(rect)
     return np.int0(box)
 
-def line_crop(img, pt1, pt2, size=25, warped=True):
-    box = line_box(img, pt1, pt2, size=size)
-    return crop(img, pts(box), warped=warped)
 
 def inject(points, idx_points):
     return pts([points[idx] for idx in idx_points])

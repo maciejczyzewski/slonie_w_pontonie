@@ -34,9 +34,8 @@ config = __action_setup()
 print("MODEL", hmr.src.config.PRETRAINED_MODEL)
 
 
-def preprocess_image(img_path):
+def preprocess_image(img):
     global config
-    img = io.imread(img_path)
     if img.shape[2] == 4:
         img = img[:, :, :3]
 
@@ -62,7 +61,7 @@ def preprocess_image(img_path):
 def parse(img_path):
     global config
 
-    input_img, proc_param, img = preprocess_image(img_path)
+    input_img, proc_param, img = preprocess_image(io.imread(img_path))
 
     valhash = __action_hash(input_img)
     valpath = config.cache_path + str(valhash)
