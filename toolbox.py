@@ -1,5 +1,8 @@
 import cv2
 import numpy as np
+import pyclipper
+
+import math
 
 def debug(imgs, txt="debug"):
     import matplotlib.pyplot as plt
@@ -12,6 +15,27 @@ def debug(imgs, txt="debug"):
         plt.title("[{}] {}".format(i, txt))
         plt.axis('off')
     plt.show()
+
+def normal(points): return [[int(a), int(b)] for a, b in points]
+
+def polysort(points):
+    points = normal(points)
+    mlat = sum(x[0] for x in points) / len(points)
+    mlng = sum(x[1] for x in points) / len(points)
+    def __sort(x): # main math --> found on MIT site
+        return (math.atan2(x[0]-mlat, x[1]-mlng) + \
+            2*math.pi)%(2*math.pi)
+    points.sort(key=__sort)
+    return pts(points)
+
+def pad(points, size=60):
+    pco = pyclipper.PyclipperOffset()
+    points = polysort(points[0])
+    pco.AddPath(points[0], \
+            pyclipper.JT_MITER, pyclipper.ET_CLOSEDPOLYGON)
+    padded_points = pco.Execute(size)[0]
+    print("PAD", padded_points)
+    return pts(padded_points)
 
 def crop(img, points, warped=False):
     if not warped:
