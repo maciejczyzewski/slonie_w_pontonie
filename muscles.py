@@ -47,58 +47,58 @@ def get_muscles(img):
         toolbox.inject(
             joints_orig,
             pb)[0],
-        size=50)
+        size=80)
     lewy_biceps = toolbox.line_crop(
         skel_img,
         *
         toolbox.inject(
             joints_orig,
             lb)[0],
-        size=50)
-    prawa_klatka = toolbox.crop(skel_img, pkla)
-    lewa_klatka = toolbox.crop(skel_img, lkla)
+        size=80)
+    prawa_klatka = toolbox.crop(skel_img, toolbox.pad(pkla, 20))
+    lewa_klatka = toolbox.crop(skel_img, toolbox.pad(lkla, 20))
     prawe_ramie = toolbox.line_crop(
         skel_img,
         *
         toolbox.inject(
             joints_orig,
             pr)[0],
-        size=40)
+        size=80)
     lewe_ramie = toolbox.line_crop(
         skel_img,
         *
         toolbox.inject(
             joints_orig,
             lr)[0],
-        size=40)
+        size=80)
     prawe_udo = toolbox.line_crop(
         skel_img,
         *
         toolbox.inject(
             joints_orig,
             pu)[0],
-        size=60)
+        size=80)
     lewe_udo = toolbox.line_crop(
         skel_img,
         *
         toolbox.inject(
             joints_orig,
             lu)[0],
-        size=60)
+        size=80)
     prawa_lydka = toolbox.line_crop(
         skel_img,
         *
         toolbox.inject(
             joints_orig,
             pl)[0],
-        size=40)
+        size=80)
     lewa_lydka = toolbox.line_crop(
         skel_img,
         *
         toolbox.inject(
             joints_orig,
             ll)[0],
-        size=40)
+        size=80)
     lewy_abs = toolbox.crop(skel_img, labs)
     prawy_abs = toolbox.crop(skel_img, pabs)
 
@@ -187,7 +187,7 @@ def parse_file(filename):
             #print(M)
         #print("TYPE", M)
         # FIXME: resize to MAX 100
-        M = fit(M, M, (150, 150))
+        M = fit(M, M, (100, 100))
         #M = cropND(M, (100,100))
         okay_dmuscles[key] = M
 
