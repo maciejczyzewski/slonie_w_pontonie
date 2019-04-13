@@ -116,4 +116,4 @@ def get_muscles(img):
                    lewa_lydka])
 
 
-get_muscles(io.imread("input/lewy.jpg"))
+get_muscles(io.imread("data/dataset men ABC/A_566448.png"))

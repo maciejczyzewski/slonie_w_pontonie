@@ -80,9 +80,14 @@ def line_box(img, pt1, pt2, size=25):
     ret, thresh = cv2.threshold(mask, 127, 255, 0)
     thresh = cv2.cvtColor(thresh, cv2.COLOR_BGR2GRAY)
     contours, hierarchy = cv2.findContours(thresh, 1, 2)
-    cnt = contours[0]
-    rect = cv2.minAreaRect(cnt)
-    box = cv2.boxPoints(rect)
+    try:
+        cnt = contours[0]
+        rect = cv2.minAreaRect(cnt)
+        box = cv2.boxPoints(rect)
+        print(box)
+    except:
+        box = pts([[0,0],[0,1],[1,0],[1,1]])[0]
+        print(box)
     return np.int0(box)
 
 
