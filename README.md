@@ -1,6 +1,7 @@
 ## Słonie w pontonie
 
 Analiza stanu ciała i zdrowia na podstawie serii zdjęć przy pomocy sieci neuronowych.
+
 *dodatkowe funkcje: sugestie treningowe, ostrzeżenia chorobowe, statystyki i wizualizacje progresu
 
 ![miesniak](jpg/1.jpg)
