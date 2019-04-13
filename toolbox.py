@@ -1,6 +1,10 @@
 import cv2
 import numpy as np
 
+from hmr.src.util import renderer as vis_util
+
+import joints
+
 import pyclipper
 import math
 
@@ -94,3 +98,25 @@ def pts(points):
     for i in range(0, len(points)):
         points[i] = list(map(int, np.array(points[i]).flatten()))
     return np.array([points], dtype=np.int32)
+
+def premask(img, cam_for_render, vert_shifted):
+    mask = np.zeros(img.shape, dtype=np.uint8)
+    renderer = vis_util.SMPLRenderer(face_path=joints.config.smpl_face_path)
+    rend_img_overlay = renderer(
+        vert_shifted, cam=cam_for_render, img=mask, do_alpha=False)
+
+    # rend_img_overlay[0<rend_img_overlay] = 1
+
+    black_pixels_mask = np.all(rend_img_overlay == [0, 0, 0], axis=-1)
+    non_black_pixels_mask = np.any(rend_img_overlay != [0, 0, 0], axis=-1)
+    # or non_black_pixels_mask = ~black_pixels_mask
+
+    image_copy = rend_img_overlay.copy()
+    image_copy[black_pixels_mask] = [255, 255, 255]
+    image_copy[non_black_pixels_mask] = [0, 0, 0]
+
+    #kernel = np.ones((2,2),np.uint8)
+    #image_copy = cv2.erode(image_copy,kernel,iterations = 1)
+
+    image_copy = ~image_copy
+    return cv2.bitwise_and(img, image_copy)
