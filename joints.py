@@ -59,9 +59,13 @@ def preprocess_image(img):
 
 
 def parse(img_path):
+    return parse_core(io.imread(img_path))
+
+
+def parse_core(img_org):
     global config
 
-    input_img, proc_param, img = preprocess_image(io.imread(img_path))
+    input_img, proc_param, img = preprocess_image(img_org)
 
     valhash = __action_hash(input_img)
     valpath = config.cache_path + str(valhash)

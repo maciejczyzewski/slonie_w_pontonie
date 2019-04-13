@@ -99,7 +99,6 @@ def pts(points):
         points[i] = list(map(int, np.array(points[i]).flatten()))
     return np.array([points], dtype=np.int32)
 
-
 def premask(img, cam_for_render, vert_shifted):
     mask = np.zeros(img.shape, dtype=np.uint8)
     renderer = vis_util.SMPLRenderer(face_path=joints.config.smpl_face_path)
