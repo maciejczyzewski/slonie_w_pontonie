@@ -22,10 +22,16 @@ def visualize(img, proc_param, joints, verts, cam):
     x = toolbox.crop(skel_img,
             toolbox.pad(
                 toolbox.inject(joints_orig, [2, 3, 8, 9]),
-                size=20
+                size=0
             ),
             warped=True)
-    toolbox.debug([x, skel_img])
+    y = toolbox.crop(skel_img,
+            toolbox.pad(
+                toolbox.inject(joints_orig, [2, 3, 8, 9]),
+                size=-20
+            ),
+            warped=True)
+    toolbox.debug([x, y, skel_img])
     #toolbox.debug(skel_img)
 
 img, proc_param, joints, verts, cams = joints.parse("data/lewy.jpg")
