@@ -36,7 +36,6 @@ seq = iaa.Sequential([
     iaa.GaussianBlur(sigma=(0, 3.0)) # blur images with a sigma of 0 to 3.0
 ])
 
-
 import toolbox
 for filename in glob("{}/*/*".format(prefix)):
     img =  color.rgb2gray(io.imread(filename))
@@ -77,6 +76,12 @@ sys.exit()
 
 # https://github.com/aleju/imgaug
 
+idx = np.random.permutation(len(x_all))
+x_all = np.array(x_all)
+y_all = np.array(y_all)
+x_all,y_all = x_all[idx], y_all[idx]
+
+# FIXME: shuffle
 break_idx = int(len(x_all)*0.8)
 x_train = np.array(x_all[0:break_idx])
 y_train = np.array(y_all[0:break_idx])
@@ -129,12 +134,11 @@ model = Sequential()
 model.add(Conv2D(32, kernel_size=(3, 3),
                  activation='elu',
                  input_shape=input_shape))
-model.add(Conv2D(64, (3, 3), activation='elu'))
 model.add(Conv2D(32, (3, 3), activation='elu'))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 model.add(Dropout(0.25))
 model.add(Flatten())
-model.add(Dense(128, activation='elu'))
+model.add(Dense(128, activation='tanh'))
 model.add(Dropout(0.5))
 model.add(Dense(num_classes, activation='softmax'))
 
@@ -144,7 +148,7 @@ model.add(Dense(num_classes, activation='softmax'))
 #optimizer = Adam(lr=0.0001, decay=1e-6)
 
 model.compile(loss='hinge',
-              optimizer=keras.optimizers.Adadelta(),
+              optimizer=keras.optimizers.Adam(lr=0.0001, decay=1e-6),
               metrics=[f1_score, 'accuracy'])
 
 """
@@ -155,6 +159,7 @@ model.compile(loss=keras.losses.categorical_crossentropy,
 
 model.fit(x_train, y_train,
           batch_size=batch_size,
+          shuffle=True,
           epochs=epochs,
           verbose=1,
           validation_data=(x_test, y_test))
