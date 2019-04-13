@@ -2,7 +2,7 @@
 
 Analiza stanu ciała i zdrowia na podstawie serii zdjęć przy pomocy sieci neuronowych.
 
-*dodatkowe funkcje: sugestie treningowe, ostrzeżenia chorobowe, statystyki i wizualizacje progresu
+_*dodatkowe funkcje: sugestie treningowe, ostrzeżenia chorobowe, statystyki i wizualizacje progresu_
 
 ![miesniak](jpg/1.jpg)
 ![lewy w pelnej klasie](keypoints_pose_18.png)
