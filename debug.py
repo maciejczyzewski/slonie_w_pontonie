@@ -30,7 +30,11 @@ def visualize(img, proc_param, joints, verts, cam):
 
     #cv2.line(skel_img, pBR, pCC, (0,0,0), 50)
 
-    x = toolbox.line_crop(skel_img, pBR, pCC)
+    x = toolbox.line_crop(skel_img, \
+        pt(joints_orig[9]), pt(joints_orig[10]), size=35)
+    toolbox.debug(x)
+
+    x = toolbox.crop(skel_img, toolbox.inject(joints_orig, [6, 7, 8]))
     toolbox.debug(x)
 
     import sys

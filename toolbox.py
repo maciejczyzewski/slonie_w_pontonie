@@ -41,6 +41,9 @@ def line_crop(img, pt1, pt2, size=25):
     box = np.int0(box)
     return crop(img, pts(box), warped=True)
 
+def inject(points, idx_points):
+    return pts([points[idx] for idx in idx_points])
+
 def pt(point):
     return (int(point[0]), int(point[1]))
 
