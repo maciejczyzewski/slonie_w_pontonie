@@ -1,22 +1,28 @@
-## :muscle: __Słonie w pontonie__ :muscle:
+# :muscle: __Słonie w pontonie__ :muscle:
 
-# Wprowadzenie
+<img src="keypoints_pose_18.png" alt="lewy w pelnej klasie" width="400" align="right"/>
 
-Aplikacja analizująca stan ciała i zdrowia na podstawie serii zdjęć przy pomocy sieci neuronowych.
+### Wprowadzenie
 
-_*dodatkowe funkcje: sugestie treningowe, ostrzeżenia chorobowe, statystyki i wizualizacje progresu_
+Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoczesnej kontroli stanu zdrowia. Na podstawie serii zdjęć, za pomocą sieci neuronowych analizuje objętość i kształt mięśni oraz posturę, zwracając uwagę na ostrzeżenia chorobowe (takie jak otyłość, skrzywienia kręgosłupa, rak skóry).
 
-# Założenia aplikacji
+### Funkcje
 
-![miesniak](docs/1.jpg)
-> _Analiza stanu ciała ze zdjęcia_
-![skala](docs/2.jpg)
-> _Umieszczenie sylwetki na skali_
+- analiza objętości i kształtu mięśni
+- klasyfikacja sylwetki na skali
+- wizualizacja progresu i statystyki
+- możliwość wyznaczenia przez klienta celu i dopasowanie treningu
+- analiza postury
+- ostrzeżenia chorobowe
 
-## Funkcje
+### Założenia aplikacji
 
-![lewy w pelnej klasie](keypoints_pose_18.png)
-> _Wyznaczanie punktów sylwetki_
+<img src="docs/1.jpg" alt="miesniak" height="400"/>
+<i>Analiza stanu ciała ze zdjęcia</i>
+<img src="docs/2.jpg" alt="skala" height="400"/>
+<i>Umieszczenie sylwetki na skali</i>
+
+
 
 ```
 $ pipreqs . --ignore hmr                        # generacja listy pakietow
