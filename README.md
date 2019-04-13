@@ -4,7 +4,7 @@
 
 ### Wprowadzenie
 
-Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoczesnej kontroli stanu zdrowia. Na podstawie serii zdjęć analizuje objętość i kształt mięśni oraz posturę, zwracając uwagę na ostrzeżenia chorobowe (takie jak otyłość, skrzywienia kręgosłupa, rak skóry).
+Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoczesnej kontroli stanu zdrowia. Na podstawie serii zdjęć, za pomocą sieci neuronowych analizuje objętość i kształt mięśni oraz posturę, zwracając uwagę na ostrzeżenia chorobowe (takie jak otyłość, skrzywienia kręgosłupa, rak skóry).
 
 ### Funkcje
 
@@ -18,9 +18,9 @@ Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoc
 ### Założenia aplikacji
 
 <img src="docs/1.jpg" alt="miesniak" height="400"/>
-_Analiza stanu ciała ze zdjęcia_
+<i>Analiza stanu ciała ze zdjęcia</i>
 <img src="docs/2.jpg" alt="skala" height="400"/>
-_Umieszczenie sylwetki na skali_
+<i>Umieszczenie sylwetki na skali</i>
 
 
 
