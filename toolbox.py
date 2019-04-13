@@ -11,15 +11,23 @@ def debug(img, txt="debug"):
     plt.axis('off')
     plt.show()
 
-def crop(img, points):
-    mask = np.zeros(img.shape, dtype=np.uint8)
-    cv2.fillPoly(mask, points, (255))
-    print("MASK", mask.shape)
-    print("IMG", img.shape)
-    res = cv2.bitwise_and(img,img,mask)
-    rect = cv2.boundingRect(points)
-    cropped = res[rect[1]: rect[1] + rect[3], rect[0]: rect[0] + rect[2]]
-    return cropped
+def crop(img, points, warped=False):
+    if not warped:
+        mask = np.zeros(img.shape, dtype=np.uint8)
+        cv2.fillPoly(mask, points, (255))
+        print("MASK", mask.shape)
+        print("IMG", img.shape)
+        res = cv2.bitwise_and(img,img,mask)
+        rect = cv2.boundingRect(points)
+        return res[rect[1]: rect[1] + rect[3], rect[0]: rect[0] + rect[2]]
+    else:
+        rect = cv2.minAreaRect(points)
+        center, size, angle = rect[0], rect[1], rect[2]
+        center, size = tuple(map(int, center)), tuple(map(int, size))
+        height, width = img.shape[0], img.shape[1]
+        M = cv2.getRotationMatrix2D(center, angle, 1)
+        img_rot = cv2.warpAffine(img, M, (width, height))
+        return cv2.getRectSubPix(img_rot, size, center)
 
 def line_crop(img, pt1, pt2, size=25):
     # FIXME: size -> dynamiczny do dlugosci reki
@@ -32,7 +40,7 @@ def line_crop(img, pt1, pt2, size=25):
     rect = cv2.minAreaRect(cnt)
     box = cv2.boxPoints(rect)
     box = np.int0(box)
-    return crop(img, pts(box))
+    return crop(img, pts(box), warped=True)
 
 def pt(point):
     return (int(point[0]), int(point[1]))
