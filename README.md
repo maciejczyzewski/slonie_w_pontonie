@@ -1,12 +1,22 @@
-## Słonie w pontonie
+## :muscle: __Słonie w pontonie__ :muscle:
 
-Analiza stanu ciała i zdrowia na podstawie serii zdjęć przy pomocy sieci neuronowych.
+# Wprowadzenie
+
+Aplikacja analizująca stan ciała i zdrowia na podstawie serii zdjęć przy pomocy sieci neuronowych.
 
 _*dodatkowe funkcje: sugestie treningowe, ostrzeżenia chorobowe, statystyki i wizualizacje progresu_
 
-![miesniak](jpg/1.jpg)
-![hu ar ju](jpg/2.jpg)
+# Założenia aplikacji
+
+![miesniak](docs/1.jpg)
+> _Analiza stanu ciała ze zdjęcia_
+![skala](docs/2.jpg)
+> _Umieszczenie sylwetki na skali_
+
+## Funkcje
+
 ![lewy w pelnej klasie](keypoints_pose_18.png)
+> _Wyznaczanie punktów sylwetki_
 
 ```
 $ pipreqs . --ignore hmr                        # generacja listy pakietow
