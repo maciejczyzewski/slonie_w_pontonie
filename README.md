@@ -1,6 +1,6 @@
 # :muscle: __Słonie w pontonie__ :muscle:
 
-<img src="keypoints_pose_18.png" alt="lewy w pelnej klasie" width="400" align="right"/>
+<img src="keypoints_pose_18.png" alt="lewy w pelnej klasie" width="300" align="right"/>
 
 ### Wprowadzenie
 
@@ -11,8 +11,8 @@ Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoc
 Ponizej prezentujemy rezultaty sieci do analizy **stopnia rozbudowy/masy
 miesniowej/tluszczu**.
 
-<img src="epoch_acc.png" alt="epoch_acc" width="460" align="left"/>
-<img src="epoch_loss.png" alt="epoch_loss" width="460" align="left"/>
+<img src="epoch_acc.png" alt="epoch_acc" width="525" align="left"/>
+<img src="epoch_loss.png" alt="epoch_loss" width="525" align="left"/>
 
 | Net (spec.)   |      Acc.     |
 |---------------|:-------------:|
