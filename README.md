@@ -25,6 +25,10 @@ miesniowej/tluszczu**.
 
 ![posture](posture.png)
 
+### PudzinNet Dataset (przyklad dla prawy_abs/gradient)
+
+![PudzinNet](PudzianNet_dataset.png)
+
 ### Funkcje
 
 - analiza objętości i kształtu mięśni
