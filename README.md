@@ -54,6 +54,10 @@ Skutecznosci podane w tabeli (osobny model dla osobnego miesnia/czesci ciala):
 
 ![wszystko_in](timeseries.png)
 
+### Tendencje jako wspolczynniki
+
+![wspolczynniki](balans.png)
+
 ### Założenia aplikacji
 
 <img src="docs/1.jpg" alt="miesniak" height="400"/>
