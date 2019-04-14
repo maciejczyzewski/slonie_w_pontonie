@@ -16,7 +16,7 @@ html, body{
 }
 #camera--trigger{
     width: 200px;
-    background-color: black;
+    background-color: #fed73a;
     color: white;
     font-size: 16px;
     border-radius: 30px;
