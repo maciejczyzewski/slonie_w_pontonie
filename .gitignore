@@ -4,3 +4,4 @@ __pycache__
 cache/*
 logs/*
 model/*
+input_series/*

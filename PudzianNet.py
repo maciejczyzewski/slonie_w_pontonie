@@ -150,22 +150,23 @@ model.compile(loss=keras.losses.categorical_crossentropy,
 
 net_names = ['lewy_abs', 'prawy_abs', 'prawa_klatka', 'lewa_klatka', 'prawy_biceps', 'lewy_biceps', 'prawe_ramie', 'lewe_ramie', 'prawe_udo', 'lewe_udo', 'prawa_lydka', 'lewa_lydka']
 
-while 1:
-    for name in net_names:
-        print("\033[92m=== {} ===\033[m".format(name))
-        tbCallBack = tf.keras.callbacks.TensorBoard(log_dir='logs/'+name, histogram_freq=0, write_graph=True, write_images=True)
-        if glob("model/"+name) != []:
-            model.load_weights("model/"+name)
-        x_train, y_train, x_test, y_test = get_dataset_for_type(name)
-        model.fit(x_train, y_train,
-                  batch_size=batch_size,
-                  shuffle=True,
-                  epochs=epochs,
-                  verbose=1,
-                  validation_data=(x_test, y_test),callbacks=[tbCallBack,
-                              EarlyStopping(min_delta=0.00025, patience=2)])
-        score = model.evaluate(x_test, y_test, verbose=0)
-        model.save_weights("model/"+name)
-        print("WHAT", name)
-        print('Test loss:', score[0])
-        print('Test accuracy:', score[1])
+if __name__ == "__main__":
+    while 1:
+        for name in net_names:
+            print("\033[92m=== {} ===\033[m".format(name))
+            tbCallBack = tf.keras.callbacks.TensorBoard(log_dir='logs/'+name, histogram_freq=0, write_graph=True, write_images=True)
+            if glob("model/"+name) != []:
+                model.load_weights("model/"+name)
+            x_train, y_train, x_test, y_test = get_dataset_for_type(name)
+            model.fit(x_train, y_train,
+                      batch_size=batch_size,
+                      shuffle=True,
+                      epochs=epochs,
+                      verbose=1,
+                      validation_data=(x_test, y_test),callbacks=[tbCallBack,
+                                  EarlyStopping(min_delta=0.00025, patience=2)])
+            score = model.evaluate(x_test, y_test, verbose=0)
+            model.save_weights("model/"+name)
+            print("WHAT", name)
+            print('Test loss:', score[0])
+            print('Test accuracy:', score[1])
