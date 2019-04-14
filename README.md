@@ -6,17 +6,13 @@
 
 Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoczesnej kontroli stanu zdrowia. Na podstawie serii zdjęć, za pomocą sieci neuronowych analizuje objętość i kształt mięśni oraz posturę, zwracając uwagę na ostrzeżenia chorobowe (takie jak otyłość, skrzywienia kręgosłupa, rak skóry).
 
-### Preprocessing (dane 3d/auto. maska/postura)
-
-![posture](posture.png)
-
 ### Skutecznosc ML
 
 Ponizej prezentujemy rezultaty sieci do analizy **stopnia rozbudowy/masy
 miesniowej/tluszczu**.
 
-![epoch_acc](epoch_acc.png)
-![epoch_loss](epoch_loss.png)
+<img src="epoch_acc.png" alt="epoch_acc" width="460" align="left"/>
+<img src="epoch_loss.png" alt="epoch_loss" width="460" align="left"/>
 
 | Net (spec.)   |      Acc.     |
 |---------------|:-------------:|
@@ -32,6 +28,10 @@ miesniowej/tluszczu**.
 | prawa_klatka  | 0.80          |
 | lewa_klatka   | 0.76          |
 | prawy_biceps  | 0.72          |
+
+### Preprocessing (dane 3d/auto. maska/postura)
+
+![posture](posture.png)
 
 ### Funkcje
 
