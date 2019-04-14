@@ -42,7 +42,15 @@ Skutecznosci podane w tabeli (osobny model dla osobnego miesnia/czesci ciala):
 
 ![PudzinNet](PudzianNet_dataset.png)
 
+### Dane wejsciowe dla serii w czasie (np. po treningu)
+
+![progress](inputseries.png)
+
 ### Analiza w czasie progresu treningu (czarna linia/tendencja)
+
+> ciekawostka, wyszlo ze lewa strona jest **nie dotrenowana**
+> okazuje sie ze analizujac zdjecia **w istocie tak jest**!!!
+> SUKCES NASZEGO PROJEKTU! WLASNIE PO TO ISTNIEJE
 
 ![wszystko_in](timeseries.png)
 
