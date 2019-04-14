@@ -6,6 +6,13 @@
 
 Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoczesnej kontroli stanu zdrowia. Na podstawie serii zdjęć, za pomocą sieci neuronowych analizuje objętość i kształt mięśni oraz posturę, zwracając uwagę na ostrzeżenia chorobowe (takie jak otyłość, skrzywienia kręgosłupa, rak skóry).
 
+- analiza objętości i kształtu mięśni
+- klasyfikacja sylwetki na skali
+- wizualizacja progresu i statystyki
+- możliwość wyznaczenia przez klienta celu i dopasowanie treningu
+- analiza postury
+- ostrzeżenia chorobowe
+
 ### Skutecznosc ML
 
 Ponizej prezentujemy rezultaty sieci do analizy **stopnia rozbudowy/masy
@@ -28,15 +35,6 @@ miesniowej/tluszczu**.
 ### PudzinNet Dataset (przyklad dla prawy_abs/gradient)
 
 ![PudzinNet](PudzianNet_dataset.png)
-
-### Funkcje
-
-- analiza objętości i kształtu mięśni
-- klasyfikacja sylwetki na skali
-- wizualizacja progresu i statystyki
-- możliwość wyznaczenia przez klienta celu i dopasowanie treningu
-- analiza postury
-- ostrzeżenia chorobowe
 
 ### Założenia aplikacji
 
