@@ -38,7 +38,7 @@ Skutecznosci podane w tabeli (osobny model dla osobnego miesnia/czesci ciala):
 
 ![rozbiorka](dekompozycja.png)
 
-### PudzinNet Dataset (przyklad dla prawy_abs/gradient)
+### PudzianNet Dataset (przyklad dla prawy_abs/gradient)
 
 ![PudzinNet](PudzianNet_dataset.png)
 
