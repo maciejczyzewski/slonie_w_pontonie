@@ -42,6 +42,10 @@ Skutecznosci podane w tabeli (osobny model dla osobnego miesnia/czesci ciala):
 
 ![PudzinNet](PudzianNet_dataset.png)
 
+### Analiza w czasie progresu treningu (czarna linia/tendencja)
+
+![wszystko_in](timeseries.png)
+
 ### Założenia aplikacji
 
 <img src="docs/1.jpg" alt="miesniak" height="400"/>
