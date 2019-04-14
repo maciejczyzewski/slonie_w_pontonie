@@ -18,8 +18,10 @@ Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoc
 Ponizej prezentujemy rezultaty sieci do analizy **stopnia rozbudowy/masy
 miesniowej/tluszczu**.
 
-<img src="epoch_acc.png" alt="epoch_acc" width="525" align="left"/>
-<img src="epoch_loss.png" alt="epoch_loss" width="525" align="left"/>
+<img src="epoch_acc.png" alt="epoch_acc" width="47.5%" align="left"/>
+<img src="epoch_loss.png" alt="epoch_loss" width="47.5%" align="left"/>
+
+Skutecznosci podane w tabeli (osobny model dla osobnego miesnia/czesci ciala):
 
 | Net (spec.)   |      Acc.     | Net (spec.)   |      Acc.     | Net (spec.)   |      Acc.     |
 |---------------|:-------------:|---------------|:-------------:|---------------|:-------------:|
