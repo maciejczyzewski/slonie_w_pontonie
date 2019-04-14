@@ -72,9 +72,9 @@ Skutecznosci podane w tabeli (osobny model dla osobnego miesnia/czesci ciala):
 
 <i>Wersja alpha mobilnej aplikacji</i> | <i>Wyjasnienie do stwierdzenia</i><br>
 <div>
-<img src="mobile2.png" alt="mobile2" height="400" />
-<img src="dominika.png" alt="mobile" height="400" />
-<img src="wyjasnienie.png" alt="wyjasnienie" height="400" />
+<img src="mobile2.png" alt="mobile2" width="400" />
+<img src="dominika.png" alt="mobile" width="400" />
+<img src="wyjasnienie.png" alt="wyjasnienie" width="400" />
 </div>
 <br><br>
 
