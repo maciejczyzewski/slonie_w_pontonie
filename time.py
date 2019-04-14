@@ -3,6 +3,8 @@ R = np.load("results.npz")["results"]
 from pprint import pprint
 #print(R)
 
+DEBUG = True
+
 # lewy_abs
 
 def culnorm2(arr):
@@ -48,7 +50,13 @@ def gen_plot(R, name):
     degarr[name] = degnorm
     plt.plot(X,Y4, 'bo', X, fit_fn(X), '--k')
 
-    plt.savefig('output/{}.png'.format(name),bbox_inches = 'tight',pad_inches = 0)
+    xname = name.split("_")
+    xname = [xname[1], xname[0]]
+    xname = "_".join(xname)
+    print("XNAME", xname)
+
+    if DEBUG:
+        plt.savefig('output/{}.png'.format(xname),bbox_inches = 'tight',pad_inches = 0)
 
 net_names = ['lewy_abs', 'prawy_abs', 'prawa_klatka', 'lewa_klatka', 'prawy_biceps', 'lewy_biceps', 'prawe_ramie', 'lewe_ramie', 'prawe_udo', 'lewe_udo', 'prawa_lydka', 'lewa_lydka']
 
@@ -72,10 +80,46 @@ bal['p'] = sum(bal['p'])/len(bal['p'])
 print("LEWA", bal['l'])
 print("PRAWA", bal['p'])
 
+przetrenowana_strona = abs(bal['l']-bal['p'])>4
+przetrenowana_strona_ktora = math.copysign(1, bal['l']-bal['p']) == -1
+
+print("CZY JAKAS STRONA JEST PRZETRENOWANA?", przetrenowana_strona)
+
+import os
+os.system("montage input_series/*  -geometry 100x100+1+1 inputseries.png")
+os.system("montage output/*  -tile 2x -geometry 300x300+1+1 timeseries_rap.png")
 """
-montage input_series/*  -geometry 100x100+1+1 inputseries.png
-montage output/*  -geometry 300x300+1+1 timeseries.png
+$ montage input_series/*  -geometry 100x100+1+1 inputseries.png
+$ montage output/*  -geometry 300x300+1+1 timeseries.png
 """
+
+from jinja2 import Environment, FileSystemLoader
+import os
+
+root = os.path.dirname(os.path.abspath(__file__))
+templates_dir = os.path.join(root, 'templates')
+env = Environment( loader = FileSystemLoader(templates_dir) )
+template = env.get_template('index.html')
+
+
+filename = os.path.join(root, 'html', 'index.html')
+with open(filename, 'w') as fh:
+    fh.write(template.render(
+        przetrenowana_strona = przetrenowana_strona,
+        przetrenowana_strona_ktora = przetrenowana_strona_ktora,
+        show_two = False,
+        names    = ["Foo", "Bar", "Qux"],
+    ))
+
+# jinja2???? FIXME
+
+# FIXME: rysunek z zaznaczona wada
+
+# (1) inputs
+# (2) tabela
+# (3) wykresy
+# (4) komunikaty
+# (5) moze ten czlowieczek???
 
 #pprint(X)
 

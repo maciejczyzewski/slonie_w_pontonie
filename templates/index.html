@@ -1,0 +1,47 @@
+
+<style>
+.main
+	{
+	width:70%;
+	margin: 0 auto;
+	background: #eee;
+}
+
+.alert {
+	background: red;
+	color: white;
+}
+
+.warn {
+	background: yellow;
+}
+</style>
+<div class="main">
+
+<h1>RAPORT</h1>
+ 
+{% if przetrenowana_strona %}
+	<div class="alert">
+		{% if przetrenowana_strona_ktora %}
+		Twoja <b>LEWA</b> jest nie dotrenowana!
+		{% else %}
+		Twoja <b>PRAWA</b> jest nie dotrenowana!
+		{% endif %}
+	</div>
+{% endif %}
+
+
+<img src="../inputseries.png" width="100%" />
+<img src="../timeseries_rap.png" width="100%" />
+
+{% if show_two %}
+  <h2>two</h2>
+{% endif %}
+ 
+<ul>
+{% for name in names %}
+   <li>{{ name }}</li>
+{% endfor %}
+</ul>
+
+</div>
