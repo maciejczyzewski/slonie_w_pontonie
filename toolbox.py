@@ -106,7 +106,7 @@ def pts(points):
     return np.array([points], dtype=np.int32)
 
 
-def premask(img, cam_for_render, vert_shifted):
+def premask(img, cam_for_render, vert_shifted, joints_orig=[]):
     mask = np.zeros(img.shape, dtype=np.uint8)
     renderer = vis_util.SMPLRenderer(face_path=joints.config.smpl_face_path)
     rend_img_overlay = renderer(
@@ -126,6 +126,8 @@ def premask(img, cam_for_render, vert_shifted):
     #image_copy = cv2.erode(image_copy,kernel,iterations = 1)
 
     image_copy = ~image_copy
-    premask = cv2.bitwise_and(img, image_copy)
-    # toolbox.debug([img, rend_img_overlay, preimg])
-    return premask
+    preimg = cv2.bitwise_and(img, image_copy)
+
+    #skel_img = vis_util.draw_skeleton(img, joints_orig)
+    #debug([img, skel_img, rend_img_overlay, preimg])
+    return preimg

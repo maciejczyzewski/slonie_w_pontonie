@@ -12,7 +12,7 @@ def visualize(img, proc_param, _joints, verts, cam):
     cam_for_render, vert_shifted, joints_orig = vis_util.get_original(
         proc_param, verts, cam, _joints, img_size=img.shape[:2])
 
-    preimg = toolbox.premask(img, cam_for_render, vert_shifted)
+    preimg = toolbox.premask(img, cam_for_render, vert_shifted, joints_orig)
     # toolbox.debug([img, preimg])
 
     skel_img = vis_util.draw_skeleton(img, joints_orig)
