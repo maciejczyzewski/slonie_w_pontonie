@@ -3,7 +3,7 @@ R = np.load("results.npz")["results"]
 from pprint import pprint
 #print(R)
 
-DEBUG = True
+DEBUG = False
 
 # lewy_abs
 
@@ -47,7 +47,7 @@ def gen_plot(R, name):
     deg = np.rad2deg(np.arctan(fit[0]))
     degnorm = deg*100
     print("FIT for {}".format(name), fit, degnorm)
-    degarr[name] = degnorm
+    degarr[name] = round(degnorm, 2)
     plt.plot(X,Y4, 'bo', X, fit_fn(X), '--k')
 
     xname = name.split("_")
@@ -101,14 +101,17 @@ templates_dir = os.path.join(root, 'templates')
 env = Environment( loader = FileSystemLoader(templates_dir) )
 template = env.get_template('index.html')
 
+final_words = ""
 
 filename = os.path.join(root, 'html', 'index.html')
 with open(filename, 'w') as fh:
     fh.write(template.render(
-        przetrenowana_strona = przetrenowana_strona,
-        przetrenowana_strona_ktora = przetrenowana_strona_ktora,
-        show_two = False,
-        names    = ["Foo", "Bar", "Qux"],
+        __przetrenowana_strona = przetrenowana_strona,
+        __przetrenowana_strona_ktora = przetrenowana_strona_ktora,
+        __show_two = False,
+        __names    = ["Foo", "Bar", "Qux"],
+        degarr  = degarr,
+        final_words = final_words,
     ))
 
 # jinja2???? FIXME

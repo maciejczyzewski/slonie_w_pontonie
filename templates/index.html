@@ -15,33 +15,44 @@
 .warn {
 	background: yellow;
 }
+
+li {
+	width: 20%;
+    float: left;
+    border: 3px solid black;
+    margin: 3px;
+    height: 100px;
+	    text-align: center;
+	font-weight: bold;
+	text-align: center;
+}
+
+li span {
+	font-size: 50px;
+	    font-weight: lighter;
+		width: 100%;
+		display: table;
+}
+
+ul {
+  list-style-type: none;
+}
 </style>
 <div class="main">
 
 <h1>RAPORT</h1>
- 
-{% if przetrenowana_strona %}
-	<div class="alert">
-		{% if przetrenowana_strona_ktora %}
-		Twoja <b>LEWA</b> jest nie dotrenowana!
-		{% else %}
-		Twoja <b>PRAWA</b> jest nie dotrenowana!
-		{% endif %}
-	</div>
-{% endif %}
-
 
 <img src="../inputseries.png" width="100%" />
-<img src="../timeseries_rap.png" width="100%" />
 
-{% if show_two %}
-  <h2>two</h2>
-{% endif %}
- 
 <ul>
-{% for name in names %}
-   <li>{{ name }}</li>
+{% for name in degarr %}
+<li>{{ name }} <span>{{degarr[name]}}%</span></li>
 {% endfor %}
 </ul>
+<div>
+{{ final_words }}
+</div>
+
+<img src="../timeseries_rap.png" width="100%" />
 
 </div>
