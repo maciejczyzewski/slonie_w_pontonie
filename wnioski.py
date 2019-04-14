@@ -102,4 +102,3 @@ if min(bal['l'], bal['p']) / max(bal['l'], bal['p']) < 0.8:  # IMBA
     else:
         odpowiedz += ("twoja prawa strona jest większa od lewej o ")
     odpowiedz += str(min(bal['l'], bal['p']) / max(bal['l'], bal['p']) * 100) + " %\n"
-print(odpowiedz)
