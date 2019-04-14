@@ -14,20 +14,12 @@ miesniowej/tluszczu**.
 <img src="epoch_acc.png" alt="epoch_acc" width="525" align="left"/>
 <img src="epoch_loss.png" alt="epoch_loss" width="525" align="left"/>
 
-| Net (spec.)   |      Acc.     |
-|---------------|:-------------:|
-| lewy_biceps   | 0.81          |
-| prawe_ramie   | 0.78          |
-| lewe_ramie    | 0.71          |
-| prawe_udo     | 0.78          |
-| lewe_udo      | 0.74          |
-| prawa_lydka   | 0.63          |
-| lewa_lydka    | 0.62          |
-| lewy_abs      | 0.52          |
-| prawy_abs     | 0.73          |
-| prawa_klatka  | 0.80          |
-| lewa_klatka   | 0.76          |
-| prawy_biceps  | 0.72          |
+| Net (spec.)   |      Acc.     | Net (spec.)   |      Acc.     | Net (spec.)   |      Acc.     |
+|---------------|:-------------:|---------------|:-------------:|---------------|:-------------:|
+| prawe_ramie   | 0.78          | prawe_udo     | 0.78          | prawa_lydka   | 0.63          |
+| lewe_ramie    | 0.71          | lewe_udo      | 0.74          | lewa_lydka    | 0.62          |
+| lewy_abs      | 0.52          | prawa_klatka  | 0.80          | prawy_biceps  | 0.72          |
+| prawy_abs     | 0.73          | lewa_klatka   | 0.76          | lewy_biceps   | 0.81          |
 
 ### Preprocessing (dane 3d/auto. maska/postura)
 
