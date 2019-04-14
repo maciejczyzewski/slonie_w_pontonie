@@ -14,7 +14,7 @@ from skimage import color
 
 batch_size = 64
 num_classes = 3
-epochs = 100
+epochs = 5
 
 img_rows, img_cols = 100, 100
 

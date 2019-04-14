@@ -6,6 +6,26 @@
 
 Aplikacja dla osób trenujących. Pozwala śledzić progres treningu przy jednoczesnej kontroli stanu zdrowia. Na podstawie serii zdjęć, za pomocą sieci neuronowych analizuje objętość i kształt mięśni oraz posturę, zwracając uwagę na ostrzeżenia chorobowe (takie jak otyłość, skrzywienia kręgosłupa, rak skóry).
 
+### Skutecznosc ML
+
+![epoch_acc](epoch_acc.png)
+![epoch_loss](epoch_loss.png)
+
+| Net (spec.)   |      Acc.     |
+|---------------|:-------------:|
+| lewy_biceps   | 0.81          |
+| prawe_ramie   | 0.78          |
+| lewe_ramie    | 0.71          |
+| prawe_udo     | 0.78          |
+| lewe_udo      | 0.74          |
+| prawa_lydka   | 0.63          |
+| lewa_lydka    | 0.62          |
+| lewy_abs      | 0.52          |
+| prawy_abs     | 0.73          |
+| prawa_klatka  | 0.80          |
+| lewa_klatka   | 0.76          |
+| prawy_biceps  | 0.72          |
+
 ### Funkcje
 
 - analiza objętości i kształtu mięśni
