@@ -42,7 +42,7 @@ def gen_plot(R, name):
 
     plt.plot(X,Y4, 'bo', X, fit_fn(X), '--k')
 
-    plt.savefig('output/{}.png'.format(name))
+    plt.savefig('output/{}.png'.format(name),bbox_inches = 'tight',pad_inches = 0)
 
 net_names = ['lewy_abs', 'prawy_abs', 'prawa_klatka', 'lewa_klatka', 'prawy_biceps', 'lewy_biceps', 'prawe_ramie', 'lewe_ramie', 'prawe_udo', 'lewe_udo', 'prawa_lydka', 'lewa_lydka']
 
