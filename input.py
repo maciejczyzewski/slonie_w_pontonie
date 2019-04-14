@@ -17,7 +17,7 @@ from glob import glob
 
 # FIXME: jakas obsluga PudzianNet
 
-DEBUG = False
+DEBUG = True
 
 from PudzianNet import net_names, model, f1_score
 
