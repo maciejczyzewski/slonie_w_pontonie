@@ -17,6 +17,10 @@ def visualize(img, proc_param, _joints, verts, cam):
 
     skel_img = vis_util.draw_skeleton(img, joints_orig)
 
+    from muscles import parse_file_for_muscles
+    muscles_imgs = parse_file_for_muscles(img)
+    toolbox.debug(list(muscles_imgs.values()))
+
     x = toolbox.crop(preimg,
                      toolbox.pad(
                          toolbox.inject(joints_orig, [2, 3, 8, 9]),
