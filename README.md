@@ -72,4 +72,5 @@ $ pipreqs . --ignore hmr                        # generacja listy pakietow
 $ pip3 install -r requirements.txt --no-index   # instalacja pakietow
 $ autopep8 --in-place --aggressive --aggressive <filename>  # czystosc
 $ python3 debug.py  # szybki wizualny debug na "lewym"
+$ python3 time.py; open html/index.html # budowanie raportu
 ```
