@@ -172,6 +172,28 @@ def __action_hash(obj):
     h.update(obj)
     return h.intdigest()
 
+# XXX: ---------------- wazna funkcja
+def parse_file_for_muscles(img):
+    dmuscles = get_muscles(img)
+    okay_dmuscles = {}
+    for key in dmuscles:
+        M = dmuscles[key]
+        size = M.shape[0]*M.shape[1]
+        # rotation
+        if not isinstance(M, np.ndarray): continue
+        if size < 100: continue
+        if M.shape[0] < M.shape[1]:
+            M = np.rot90(M)
+            #print(M)
+        #print("TYPE", M)
+        # FIXME: resize to MAX 100
+        M = fit(M, M, (100, 100))
+        #M = cropND(M, (100,100))
+        okay_dmuscles[key] = M
+
+    return okay_dmuscles
+# --------------------------------------
+
 def parse_file(filename):
     label_w = filename.split("_")[-2][-1]
     dmuscles = get_muscles(io.imread(filename))
@@ -203,23 +225,24 @@ def parse_file(filename):
         #toolbox.debug(img)
     #return okay_dmuscles
 
-import os
-keys_1 = ['lewy_abs', 'prawy_abs', 'prawa_klatka', 'lewa_klatka', 'prawy_biceps', 'lewy_biceps', 'prawe_ramie', 'lewe_ramie', 'prawe_udo', 'lewe_udo', 'prawa_lydka', 'lewa_lydka']
-keys_2 = ['A', 'B', 'C']
+if __name__ == "__main__":
+    import os
+    keys_1 = ['lewy_abs', 'prawy_abs', 'prawa_klatka', 'lewa_klatka', 'prawy_biceps', 'lewy_biceps', 'prawe_ramie', 'lewe_ramie', 'prawe_udo', 'lewe_udo', 'prawa_lydka', 'lewa_lydka']
+    keys_2 = ['A', 'B', 'C']
 
-for a in keys_1:
-    for b in keys_2:
-        cmd = "mkdir -p data/PudzianNet/{}/{}".format(a, b)
-        print(cmd)
-        os.system(cmd)
+    for a in keys_1:
+        for b in keys_2:
+            cmd = "mkdir -p data/PudzianNet/{}/{}".format(a, b)
+            print(cmd)
+            os.system(cmd)
 
-from tqdm import tqdm
-from glob import glob
+    from tqdm import tqdm
+    from glob import glob
 
-for filename in tqdm(glob("data/dataset men ABC/*")):
-    try:
-        parse_file(filename)
-    except:
-        print("ERROR")
+    for filename in tqdm(glob("data/dataset men ABC/*")):
+        try:
+            parse_file(filename)
+        except:
+            print("ERROR")
 
-#parse_file("data/dataset men ABC/A_566448.png")
+    #parse_file("data/dataset men ABC/A_566448.png")

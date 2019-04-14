@@ -2,3 +2,6 @@
 __pycache__
 *.pyc
 cache/*
+logs/*
+model/*
+input_series/*
