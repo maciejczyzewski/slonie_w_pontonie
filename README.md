@@ -64,14 +64,15 @@ Skutecznosci podane w tabeli (osobny model dla osobnego miesnia/czesci ciala):
 
 <img src="docs/1.jpg" alt="miesniak" height="400" align="left"/>
 <img src="docs/2.jpg" alt="skala" height="400" align="left" />
+<br><br>
 
 ### Bonusy
 
-<i>Wersja alpha mobilne aplikacji</i> | <i>Wyjasnienie do stwierdzenia</i><br>
+<i>Wersja alpha mobilnej aplikacji</i> | <i>Wyjasnienie do stwierdzenia</i><br>
+<img src="mobile2.png" alt="mobile2" height="400" align="left"/>
 <img src="dominika.png" alt="mobile" height="400" align="left"/>
 <img src="wyjasnienie.png" alt="wyjasnienie" height="400" align="left"/>
-<img src="mobile2.png" alt="mobile2" height="400" align="left"/>
-
+<br><br>
 
 ```
 $ pipreqs . --ignore hmr                        # generacja listy pakietow
