@@ -63,8 +63,8 @@ Skutecznosci podane w tabeli (osobny model dla osobnego miesnia/czesci ciala):
 <i>Analiza stanu ciała ze zdjęcia</i> | <i>Umieszczenie sylwetki na skali</i><br>
 
 <div>
-<img src="docs/1.jpg" alt="miesniak" height="400" align="left"/>
-<img src="docs/2.jpg" alt="skala" height="400" align="left" />
+<img src="docs/1.jpg" alt="miesniak" height="400"/>
+<img src="docs/2.jpg" alt="skala" height="400" />
 </div>
 <br><br>
 
@@ -72,9 +72,9 @@ Skutecznosci podane w tabeli (osobny model dla osobnego miesnia/czesci ciala):
 
 <i>Wersja alpha mobilnej aplikacji</i> | <i>Wyjasnienie do stwierdzenia</i><br>
 <div>
-<img src="mobile2.png" alt="mobile2" height="400" align="left"/>
-<img src="dominika.png" alt="mobile" height="400" align="left"/>
-<img src="wyjasnienie.png" alt="wyjasnienie" height="400" align="left"/>
+<img src="mobile2.png" alt="mobile2" height="400" />
+<img src="dominika.png" alt="mobile" height="400" />
+<img src="wyjasnienie.png" alt="wyjasnienie" height="400" />
 </div>
 <br><br>
 
