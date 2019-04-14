@@ -1,53 +1,53 @@
 klatka = "\n\
--wyciskanie sztangi na �awce poziomej\n\
--pompki na por�czach\n\
+-wyciskanie sztangi na ławce poziomej\n\
+-pompki na poręczach\n\
 -pompki klasyczne\n\
--rozpi�tki na �awce poziomej\n\
--rozpi�tki w siadzie na maszynie\n\
--�ci�ganie linek wyci�gu g�rnego\n\
--krzy�owanie linek wyci�gu w staniu\n\
+-rozpiętki na ławce poziomej\n\
+-rozpiętki w siadzie na maszynie\n\
+-ściąganie linek wyciągu górnego\n\
+-krzyżowanie linek wyciągu w staniu\n\
 -wyciskanie poziome w siadzie na maszynie\n\
 "
 
 biceps = "\n\
 -unoszenie ramion na modlitewniku\n\
--unoszenie przedramienia jednor�cz\n\
--unoszenie hantli stoj�c\n\
--unoszenie hantli w chwycie m�otkowym\n\
+-unoszenie przedramienia jednorącz\n\
+-unoszenie hantli stojąc\n\
+-unoszenie hantli w chwycie młotkowym\n\
 -unoszenie sztangi nachwytem\n\
 "
 
 przedramie = "\n\
--zwis na dr��ku\n\
--obracanie hantli w d�oni\n\
+-zwis na drążku\n\
+-obracanie hantli w dłoni\n\
 -unoszenie hantli nachwytem\n\
 -unoszenie hantli podchwytem\n\
--�ciskacz do nadgarstk�w\n\
+-ściskacz do nadgarstków\n\
 "
 
 brzuch = "\n\
 -deska, deska bokiem\n\
 -brzuszki\n\
 -mostek boczny\n\
--�wieca\n\
--skr�ty tu�owia z nogami w g�rze\n\
--skr�ty tu�owia z unoszeniem n�g\n\
+-świeca\n\
+-skróty tułowia z nogami w górze\n\
+-skróty tułowia z unoszeniem nóg\n\
 -przeskoki w podporze\n\
 "
 
 uda = "\n\
--przysiad ze sztang�\n\
--wyciskanie w le�eniu na maszynie\n\
--prostowanie n�g na maszynie\n\
+-przysiad ze sztangą\n\
+-wyciskanie w leżeniu na maszynie\n\
+-prostowanie nóg na maszynie\n\
 -wykroki z hantlami w bok\n\
--wykroki do przodu ze sztang�\n\
--przysiady sumo z hantl�\n\
+-wykroki do przodu ze sztangą\n\
+-przysiady sumo z hantlą\n\
 "
 
 lydki = "\n\
--wspi�cia na palce na maszynie do wyciskania nogami\n\
--wspi�cia na palce z hantl� i talerzem\n\
--rozci�ganie tylnej ta�my stoj�c\n\
--wyskoki z przysiadu z pi�tami do po�ladk�w\n\
+-wspięcia na palce na maszynie do wyciskania nogami\n\
+-wspięcia na palce z hantlą i talerzem\n\
+-rozciąganie tylnej taśmy stojąc\n\
+-wyskoki z przysiadu z piętami do pośladków\n\
 -przeskoki na boki\n\
 "
