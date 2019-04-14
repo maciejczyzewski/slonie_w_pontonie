@@ -13,10 +13,13 @@ def culnorm2(arr):
         a.append(v)
     return a
 
+import math
+
+degarr = {}
 def gen_plot(R, name):
     Y_all = [d[name] for d in R]
     X = list(range(0, len(R)))
-    pprint(Y_all)
+    #pprint(Y_all)
     Y1 = [row[0] for row in Y_all]
     Y2 = [row[1] for row in Y_all]
     Y3 = [row[2] for row in Y_all]
@@ -39,7 +42,10 @@ def gen_plot(R, name):
     """
     fit = np.polyfit(X,Y4,1)
     fit_fn = np.poly1d(fit)
-
+    deg = np.rad2deg(np.arctan(fit[0]))
+    degnorm = deg*100
+    print("FIT for {}".format(name), fit, degnorm)
+    degarr[name] = degnorm
     plt.plot(X,Y4, 'bo', X, fit_fn(X), '--k')
 
     plt.savefig('output/{}.png'.format(name),bbox_inches = 'tight',pad_inches = 0)
@@ -54,6 +60,22 @@ for name in tqdm(net_names):
 from glob import glob
 for fname in glob("output/*"):
     print(fname)
+
+pprint(degarr)
+
+bal = {'l': [], 'p': []}
+[bal[x[0]].append(degarr[x]) for x in degarr]
+
+bal['l'] = sum(bal['l'])/len(bal['l'])
+bal['p'] = sum(bal['p'])/len(bal['p'])
+
+print("LEWA", bal['l'])
+print("PRAWA", bal['p'])
+
+"""
+montage input_series/*  -geometry 100x100+1+1 inputseries.png
+montage output/*  -geometry 300x300+1+1 timeseries.png
+"""
 
 #pprint(X)
 
